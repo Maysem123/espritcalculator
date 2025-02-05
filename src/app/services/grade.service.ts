@@ -15,16 +15,16 @@ export interface GradeEntry {
 })
 export class GradeService {
   subjects: Subject[] = [
-    { name: 'Administration et Securite des SE (Unix)', coefficient: 3 },
+    { name: 'Administration et Securite des SE (Unix)', coefficient: 4 },
     { name: 'Base de donnees', coefficient: 2 },
     { name: 'Francais', coefficient: 3 },
-    { name: 'Conception par Objet et Prog JAVA', coefficient: 4 },
+    { name: 'Conception par Objet et Prog JAVA', coefficient: 3 },
     { name: 'Entreprise structure et fonctionnement', coefficient: 1 },
-    { name: 'IP Essentials', coefficient: 1.5 },
-    { name: 'Langage de Modelisation (UML)', coefficient: 3 },
-    { name: 'Programmation procedurale', coefficient: 4 },
-    { name: 'Technologie web', coefficient: 4 },
-    { name: 'Switched network', coefficient: 1.5 },
+    { name: 'IP Essentials', coefficient: 2 },
+    { name: 'Langage de Modelisation (UML)', coefficient: 4 },
+    { name: 'Programmation procedurale', coefficient: 3 },
+    { name: 'Technologie web', coefficient: 3},
+    { name: 'Switched network', coefficient: 2},
     { name: 'Algorithme', coefficient: 2 }
   ];
 
