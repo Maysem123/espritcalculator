@@ -1,16 +1,35 @@
+/* Reset default margins and ensure full viewport coverage */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background-color: #1c1c1c;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  width: 100%;
+}
+
 /* Base styles */
 .page-container {
   min-height: 100vh;
   background-color: #1c1c1c;
-  padding: clamp(1rem, 3vw, 2rem);
+  width: 100%;
+  padding: 0; /* Remove default padding */
   color: #c8c7c8;
+  display: flex;
+  justify-content: center;
 }
 
 .form-container {
-  max-width: 800px;
   width: 100%;
-  margin: 0 auto;
+  max-width: 800px;
   padding: clamp(1rem, 3vw, 2rem);
+  margin: 0 auto;
 }
 
 /* Header styles */
@@ -39,6 +58,7 @@ h1 {
   margin-bottom: 1.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border: 1px solid #3c3c3c;
+  width: 100%;
 }
 
 .subject-header {
@@ -74,6 +94,7 @@ h1 {
 
 .input-group {
   margin-bottom: 1rem;
+  width: 100%;
 }
 
 label {
@@ -162,4 +183,14 @@ input.error {
   input {
     font-size: 16px; /* Prevents iOS zoom on focus */
   }
+
+  .form-container {
+    padding: 1rem;
+  }
+}
+
+/* Prevent zoom issues */
+@viewport {
+  width: device-width;
+  initial-scale: 1;
 }
