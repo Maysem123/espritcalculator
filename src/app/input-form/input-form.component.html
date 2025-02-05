@@ -14,7 +14,7 @@
         
         <div formGroupName="{{ subject.name }}" class="grades-container">
           <div class="input-group">
-            <label>Continuous Assessment</label>
+            <label>Contrôle continue</label>
             <input type="number" 
                    step="0.01" 
                    formControlName="cc" 
@@ -25,12 +25,12 @@
             <div class="error-message" 
                  *ngIf="gradeForm.get(subject.name)?.get('cc')?.invalid && 
                         gradeForm.get(subject.name)?.get('cc')?.touched">
-              Please enter a valid grade (0-20)
+             Entrez une note valide (0-20)
             </div>
           </div>
 
           <div class="input-group">
-            <label>Final Exam</label>
+            <label>Examen</label>
             <input type="number" 
                    step="0.01" 
                    formControlName="exam" 
@@ -41,7 +41,7 @@
             <div class="error-message" 
                  *ngIf="gradeForm.get(subject.name)?.get('exam')?.invalid && 
                         gradeForm.get(subject.name)?.get('exam')?.touched">
-              Please enter a valid grade (0-20)
+              Entrez une note valide (0-20)
             </div>
           </div>
         </div>
