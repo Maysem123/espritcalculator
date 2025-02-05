@@ -17,15 +17,15 @@ export class GradeService {
   subjects: Subject[] = [
     { name: 'Administration et Securite des SE (Unix)', coefficient: 3 },
     { name: 'Base de donnees', coefficient: 2 },
-    { name: 'CCC Francais', coefficient: 3 },
+    { name: 'Francais', coefficient: 3 },
     { name: 'Conception par Objet et Prog JAVA', coefficient: 4 },
     { name: 'Entreprise structure et fonctionnement', coefficient: 1 },
     { name: 'IP Essentials', coefficient: 1.5 },
     { name: 'Langage de Modelisation (UML)', coefficient: 3 },
     { name: 'Programmation procedurale', coefficient: 4 },
     { name: 'Technologie web', coefficient: 4 },
-    { name: 'switched network', coefficient: 1.5 },
-    { name: 'algorithme', coefficient: 2 }
+    { name: 'Switched network', coefficient: 1.5 },
+    { name: 'Algorithme', coefficient: 2 }
   ];
 
   calculateAverage(grades: { [key: string]: GradeEntry }): number {
