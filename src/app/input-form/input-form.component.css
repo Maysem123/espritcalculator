@@ -1,0 +1,70 @@
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #2c3e50;
+  }
+  
+  .subject-card {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .input-group {
+    margin: 1rem 0;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #34495e;
+  }
+  
+  input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #bdc3c7;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  input:focus {
+    border-color: #3498db;
+    outline: none;
+  }
+  
+  .error {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+  }
+  
+  button {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  button:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+  }
+  
+  button:hover:not(:disabled) {
+    background: #2980b9;
+  }
