@@ -12,19 +12,16 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./input-form.component.css']
 })
 export class InputFormComponent {
-  subjects: Subject[] ;
+  subjects: Subject[];
   gradeForm: FormGroup;
-
-
+  loading = false;
 
   constructor(
-    
     private fb: FormBuilder,
     private gradeService: GradeService,
     private router: Router
   ) {
-
-    this.subjects =  this.gradeService.subjects;
+    this.subjects = this.gradeService.subjects;
     this.gradeForm = this.fb.group({});
     this.subjects.forEach(subject => {
       this.gradeForm.addControl(subject.name, this.fb.group({
@@ -36,6 +33,7 @@ export class InputFormComponent {
 
   onSubmit() {
     if (this.gradeForm.valid) {
+      this.loading = true;
       const average = this.gradeService.calculateAverage(this.gradeForm.value);
       this.router.navigate(['/result'], { state: { average } });
     }

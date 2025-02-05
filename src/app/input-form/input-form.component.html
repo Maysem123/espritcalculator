@@ -1,27 +1,58 @@
-<div class="container">
+<div class="page-container">
+  <div class="form-container">
+    <div class="header">
+      <h1 >Info 1</h1>
+      <p class="subtitle">Calculer Voter Moyenne</p>
+    </div>
 
-    
-    <h1>Grade Calculator</h1>
     <form [formGroup]="gradeForm" (ngSubmit)="onSubmit()">
       <div class="subject-card" *ngFor="let subject of subjects">
-        <h3>{{ subject.name }} (Coefficient: {{ subject.coefficient }})</h3>
-        <div formGroupName="{{ subject.name }}">
+        <div class="subject-header">
+          <h3>{{ subject.name }}</h3>
+          <span class="coefficient">Coefficient: {{ subject.coefficient }}</span>
+        </div>
+        
+        <div formGroupName="{{ subject.name }}" class="grades-container">
           <div class="input-group">
-            <label>CC Grade:</label>
-            <input type="number" step="0.01" formControlName="cc" min="0" max="20">
-            <div class="error" *ngIf="gradeForm.get(subject.name)?.get('cc')?.invalid">
-              Valid grade required (0-20)
+            <label>Continuous Assessment</label>
+            <input type="number" 
+                   step="0.01" 
+                   formControlName="cc" 
+                   min="0" 
+                   max="20"
+                   [class.error]="gradeForm.get(subject.name)?.get('cc')?.invalid && 
+                                 gradeForm.get(subject.name)?.get('cc')?.touched">
+            <div class="error-message" 
+                 *ngIf="gradeForm.get(subject.name)?.get('cc')?.invalid && 
+                        gradeForm.get(subject.name)?.get('cc')?.touched">
+              Please enter a valid grade (0-20)
             </div>
           </div>
+
           <div class="input-group">
-            <label>Exam Grade:</label>
-            <input type="number" step="0.01" formControlName="exam" min="0" max="20">
-            <div class="error" *ngIf="gradeForm.get(subject.name)?.get('exam')?.invalid">
-              Valid grade required (0-20)
+            <label>Final Exam</label>
+            <input type="number" 
+                   step="0.01" 
+                   formControlName="exam" 
+                   min="0" 
+                   max="20"
+                   [class.error]="gradeForm.get(subject.name)?.get('exam')?.invalid && 
+                                 gradeForm.get(subject.name)?.get('exam')?.touched">
+            <div class="error-message" 
+                 *ngIf="gradeForm.get(subject.name)?.get('exam')?.invalid && 
+                        gradeForm.get(subject.name)?.get('exam')?.touched">
+              Please enter a valid grade (0-20)
             </div>
           </div>
         </div>
       </div>
-      <button type="submit" [disabled]="!gradeForm.valid">Calculate Average</button>
+
+      <button type="submit" 
+              [disabled]="!gradeForm.valid || loading" 
+              class="submit-button">
+        <span *ngIf="!loading">Calculate Average</span>
+        <div class="loader" *ngIf="loading"></div>
+      </button>
     </form>
   </div>
+</div>

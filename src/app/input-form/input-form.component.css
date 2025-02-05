@@ -1,70 +1,165 @@
-.container {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* Base styles */
+.page-container {
+  min-height: 100vh;
+  background-color: #1c1c1c;
+  padding: clamp(1rem, 3vw, 2rem);
+  color: #c8c7c8;
+}
+
+.form-container {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: clamp(1rem, 3vw, 2rem);
+}
+
+/* Header styles */
+.header {
+  text-align: center;
+  margin-bottom: clamp(2rem, 5vw, 3rem);
+}
+
+h1 {
+  color: #ea3637;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  color: #747474;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+}
+
+/* Subject card styles */
+.subject-card {
+  background: #282828;
+  border-radius: 12px;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #3c3c3c;
+}
+
+.subject-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.subject-header h3 {
+  color: #c8c7c8;
+  margin: 0;
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+}
+
+.coefficient {
+  color: #747474;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.8rem;
+  background: #343434;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* Grades container and form styles */
+.grades-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: 1.5rem;
+}
+
+.input-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #7c7c7c;
+  font-size: 0.9rem;
+}
+
+input {
+  width: 100%;
+  padding: 0.8rem;
+  background: #343434;
+  border: 2px solid #3c3c3c;
+  border-radius: 8px;
+  color: #c8c7c8;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: #ea3637;
+  outline: none;
+}
+
+input.error {
+  border-color: #ea3637;
+}
+
+.error-message {
+  color: #ea3637;
+  font-size: 0.8rem;
+  margin-top: 0.4rem;
+}
+
+/* Button styles */
+.submit-button {
+  width: 100%;
+  padding: clamp(0.8rem, 2vw, 1rem);
+  background: #ea3637;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  cursor: pointer;
+  margin-top: 2rem;
+}
+
+.submit-button:hover:not(:disabled) {
+  background: #d62d2e;
+}
+
+.submit-button:disabled {
+  background: #585858;
+  cursor: not-allowed;
+}
+
+/* Loader styles */
+.loader {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #ffffff;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Mobile-specific adjustments */
+@media screen and (max-width: 480px) {
+  .subject-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
   
-  h1 {
-    text-align: center;
-    color: #2c3e50;
-  }
-  
-  .subject-card {
-    background: #ffffff;
-    border-radius: 10px;
-    padding: 1.5rem;
-    margin: 1rem 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  }
-  
-  .input-group {
-    margin: 1rem 0;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: #34495e;
+  .grades-container {
+    grid-template-columns: 1fr;
   }
   
   input {
-    width: 100%;
-    padding: 0.8rem;
-    border: 2px solid #bdc3c7;
-    border-radius: 5px;
-    font-size: 1rem;
+    font-size: 16px; /* Prevents iOS zoom on focus */
   }
-  
-  input:focus {
-    border-color: #3498db;
-    outline: none;
-  }
-  
-  .error {
-    color: #e74c3c;
-    font-size: 0.9rem;
-    margin-top: 0.3rem;
-  }
-  
-  button {
-    background: #3498db;
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    display: block;
-    width: 100%;
-    margin-top: 1rem;
-  }
-  
-  button:disabled {
-    background: #bdc3c7;
-    cursor: not-allowed;
-  }
-  
-  button:hover:not(:disabled) {
-    background: #2980b9;
-  }
+}
